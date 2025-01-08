@@ -39,7 +39,20 @@ return {
         capabilities = capabilities,
       })
       lspconfig.hls.setup({
-        capabilities = capabilities,
+        cmd = { "haskell-language-server-wrapper", "--lsp" },
+        filetypes = { "haskell", "lhaskell" },
+        root_dir = lspconfig.util.root_pattern(
+          "*.cabal",
+          "stack.yaml",
+          "cabal.project",
+          "package.yaml",
+          "hie.yaml"
+        ),
+        settings = {
+          haskell = {
+            formattingProvider = "ormolu", -- Change to 'stylish-haskell' or 'brittany' if preferred
+          },
+        },
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
