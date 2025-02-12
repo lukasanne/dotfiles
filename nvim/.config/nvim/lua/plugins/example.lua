@@ -10,13 +10,50 @@ if true then return {} end
 -- * override the configuration of LazyVim plugins
 return {
   -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
+  -- { "ellisonleao/gruvbox.nvim" },
+
+  -- add catppuccin
+  { "catppuccin/nvim" },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        transparent_background = true,
+        term_colors = true,
+        styles = {
+          comments = { "italic" },
+          conditionals = { "italic" },
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+        },
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          treesitter = true,
+          -- For more plugins integrations, see the plugin's documentation
+        },
+      })
+    end,
+  },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "catppuccin",
     },
   },
 
