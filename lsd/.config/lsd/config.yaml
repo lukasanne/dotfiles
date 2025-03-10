@@ -32,7 +32,7 @@ layout: oneline
 # == Size ==
 # Specifies the format of the size column.
 # Possible values: default, short, bytes
-size: short
+size: default
 # == Permission ==
 # Specify the format of the permission column
 # Possible value: rwx, octal
